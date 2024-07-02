@@ -1,0 +1,17 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    docker run --rm --interactive --tty --mount type=bind,src=/home/me/scriptsfolder,dst=/scriptsfolder redgate/sqlcompare /IAgreeToTheEULA /s1:tcp:ccseyhan.database.windows.net,1433 /db1:test1 /u1:ccseyhan /p1:Password1 /s2:tcp:ccseyhan.database.windows.net,1433 /db2:test2 /u2:ccseyhan /p2:Password1 /scriptfile:"/scriptsfolder/changefile.sql"
