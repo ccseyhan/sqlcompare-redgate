@@ -14,4 +14,4 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: |
-    docker run --rm --interactive --tty --mount type=bind,src=/home/me/scriptsfolder,dst=/scriptsfolder redgate/sqlcompare /IAgreeToTheEULA /s1:tcp:ccseyhan.database.windows.net,1433 /db1:test1 /u1:ccseyhan /p1:Password1 /s2:tcp:ccseyhan.database.windows.net,1433 /db2:test2 /u2:ccseyhan /p2:Password1 /scriptfile:"/scriptsfolder/changefile.sql"
+    docker run --rm --interactive --mount type=bind,src=/home/me/scriptsfolder,dst=/scriptsfolder redgate/sqlcompare /IAgreeToTheEULA /s1:tcp:ccseyhan.database.windows.net,1433 /db1:test1 /u1:ccseyhan /p1:Password1 /s2:tcp:ccseyhan.database.windows.net,1433 /db2:test2 /u2:ccseyhan /p2:Password1 /scriptfile:"/scriptsfolder/changefile.sql"
